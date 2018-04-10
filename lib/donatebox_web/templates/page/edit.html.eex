@@ -1,0 +1,101 @@
+<%= if logged_in?(@conn) do %>
+
+<%= form_for @changeset, page_path(@conn, :profileupdate), fn f -> %>
+
+  <form method="post">
+    <label> Username: </labe>
+      <%= current_user(@conn).username %>
+    <br>
+    <%= hidden_input f, :id, autofocus: "on", placeholder: "id", value: current_user(@conn).id %>
+
+    <%= hidden_input f, :username, autofocus: "on", placeholder: "username", value: current_user(@conn).username %>
+
+
+
+    <label> Email: </label>
+    <%= text_input f, :email, autofocus: "on", placeholder: "Email", value: current_user(@conn).email %>
+    <%= error_tag f, :email %>
+    <br>
+    <label> First Name: </label>
+    <%= text_input f, :firstname, autofocus: "on", placeholder: "First Name", value: current_user(@conn).firstname %>
+    <%= error_tag f, :firstname %>
+    <br>
+
+    <label> Last Name: </label>
+    <%= text_input f, :lastname, autofocus: "on", placeholder: "Last Name", value: current_user(@conn).lastname %>
+    <%= error_tag f, :lastname %>
+    <br>
+  <label> Gender: </label>
+  <select id="gender" name="user[gender]">
+    <option value="">Gender</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+  </select>
+  <br>
+  <%= error_tag f, :gender %>
+    <label style="color:Black;">
+      Date of Birth: <%= date_input f, :birth, autofocus: "on", placeholder: "Date of Birth", value: current_user(@conn).birth %>
+    </label>
+    <%= error_tag f, :birth %>
+    <br>
+    <label> Blood Group: </label>
+    <%= text_input f, :bloodgroup, autofocus: "on", placeholder: "Blood Group", value: current_user(@conn).bloodgroup %>
+    <%= error_tag f, :bloodgroup %>
+    <br>
+
+    <label> Profession: </label>
+    <%= text_input f, :profession, autofocus: "on", placeholder: "Profession", value: current_user(@conn).profession %>
+    <%= error_tag f, :profession %>
+    <br>
+
+    <label> Mobile NO.: </label>
+    <%= text_input f, :mobile, autofocus: "on", placeholder: "Mobile NO.", value: current_user(@conn).mobile %>
+    <%= error_tag f, :mobile %>
+    <br>
+
+    <label> National ID NO.: </label>
+    <%= text_input f, :nationalID, autofocus: "on", placeholder: "National ID NO.", value: current_user(@conn).nationalID %>
+    <%= error_tag f, :nationalID %>
+    <br>
+
+    <label> Address:  </label>
+    <%= text_input f, :address, autofocus: "on", placeholder: "Address", value: current_user(@conn).address %>
+    <%= error_tag f, :address %>
+    <br>
+
+    <label> Postal Code:  </label>
+    <%= text_input f, :postal, autofocus: "on", placeholder: "Postal Code", value: current_user(@conn).postal %>
+    <%= error_tag f, :postal %>
+    <br>
+
+    <label> Country:  </label>
+    <%= text_input f, :country, autofocus: "on", placeholder: "Country", value: current_user(@conn).country %>
+    <%= error_tag f, :country %>
+    <br>
+
+    <label> Password: </label>
+    <%= password_input f, :password, autofocus: "on", placeholder: "Password" %>
+    <%= error_tag f, :password %>
+    <br>
+
+    <label> Confirm your password: </label>
+    <%= password_input f, :password_confirmation, autofocus: "on", placeholder: "Confirm Password" %>
+    <%= error_tag f, :password_confirmation %>
+    <br>
+    <%= submit "Update", class: "btn btn-primary" %>
+    <ul class="nav nav-pills pull-right">
+        <li><a href="/profile">Back</a></li>
+    </ul>
+  </form>
+  <% end %>
+
+
+
+<% else %>
+
+  <div class="jumbotron">
+    <h2>You are not authorized to be here!</h2>
+
+  </div>
+
+<% end %>

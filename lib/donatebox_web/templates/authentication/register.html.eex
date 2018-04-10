@@ -1,0 +1,68 @@
+<%= form_for @changeset, authentication_path(@conn, :createuser), fn f -> %>
+
+
+
+<div class="wrap-login100 p-t-50 p-b-90">
+  <form class="login100-form validate-form flex-sb flex-w">
+    <span class="login100-form-title p-b-51">
+      Register Now
+    </span>
+
+    <%= if @changeset.action do %>
+   <div class="alert alert-danger">
+     <p>Oops, something went wrong! Please check the errors below.</p>
+   </div>
+   <% end %>
+
+
+    <div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
+      <%= text_input f, :username, autofocus: "on", placeholder: "Username", class: "input100" %>
+      <span class="focus-input100"></span>
+    </div>
+    <%= error_tag f, :username %>
+
+    <div class="wrap-input100 validate-input m-b-16" data-validate = "Email is required">
+      <%= email_input f, :email, autofocus: "on", placeholder: "Email", class: "input100" %>
+      <span class="focus-input100"></span>
+    </div>
+    <%= error_tag f, :email %>
+
+
+    <div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+      <%= password_input f, :password, autofocus: "on", placeholder: "Password", class: "input100" %>
+      <span class="focus-input100"></span>
+    </div>
+    <%= error_tag f, :password %>
+
+    <div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+      <%= password_input f, :password_confirmation, autofocus: "on", placeholder: "Confirm Password", class: "input100" %>
+      <span class="focus-input100"></span>
+    </div>
+    <%= error_tag f, :password_confirmation %>
+
+    <div class="flex-sb-m w-full p-t-3 p-b-24">
+      <div class="contact100-form-checkbox">
+        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+        <label class="label-checkbox100" for="ckb1">
+          Remember me
+        </label>
+      </div>
+
+      <div>
+        <a href="/login" class="txt1">
+          Login
+        </a>
+
+      </div>
+    </div>
+
+    <div class="container-login100-form-btn m-t-17">
+      <div class="container-login100-form-btn m-t-17">
+        <%= submit "Register", class: "login100-form-btn" %>
+      </div>
+    </div>
+
+
+  </form>
+</div>
+    <% end %>

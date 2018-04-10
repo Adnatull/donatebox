@@ -1,0 +1,42 @@
+<%= if logged_in?(@conn) do %>
+
+    <%= form_for @changeset, page_path(@conn, :givedonation), fn f -> %>
+
+    <%= if @changeset.action do %>
+   <div class="alert alert-danger">
+     <p>Oops, something went wrong! Please check the errors below.</p>
+   </div>
+   <% end %>
+
+   <form method="post">
+
+     <%= hidden_input f, :username, autofocus: "on", placeholder: "username", value: current_user(@conn).username %>
+
+     <%= text_input f, :title, autofocus: "on", placeholder: "Title" %>
+     <%= error_tag f, :title %>
+     <br>
+     <%= text_input f, :type, autofocus: "on", placeholder: "Type of Donations" %>
+     <%= error_tag f, :type %>
+     <br>
+     <%= number_input f, :quantity, step: "any", autofocus: "on", placeholder: "Quantity" %>
+     <%= error_tag f, :quantity %>
+     <br>
+     <%= text_input f, :location, autofocus: "on", placeholder: "Where do you want to meet?" %>
+     <%= error_tag f, :location %>
+     <br>
+     <%= submit "Submit for Meeting", class: "btn btn-primary" %>
+     <ul class="nav nav-pills ">
+         <li><a href="/">Back</a></li>
+     </ul>
+
+
+   </form>
+
+ <% end %>
+
+
+<% else %>
+  <div class="jumbotron">
+    <h2>You are not authorized to be here!</h2>
+  </div>
+<% end %>

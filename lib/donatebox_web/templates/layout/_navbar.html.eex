@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand mb-0 h1" href="/">Home</a>
+  <%= if logged_in?(@conn) do %>
+    <a class="navbar-brand mb-0 h1" href="/profile">Profile</a>
+    <a class="navbar-brand mb-0 h1" href="/donate">Donate Now!</a>
+  <% end %>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+
+    <div class="text-right" font-size=20>
+
+
+        <%= if logged_in?(@conn) do %>
+          <span class="badge badge-dark mr-2"><%= current_user(@conn).username %></span>
+
+          <%= link "Logout",  to: authentication_path(@conn, :delete), class: "btn btn-primary" %>
+        <% else %>
+          <%= link "Login", to: "/login", class: "btn btn-primary" %>
+          <%= link "Register", to: authentication_path(@conn, :register), class: "btn btn-secondary" %>
+        <% end %>
+
+
+
+    </div>
+  </div>
+</nav>

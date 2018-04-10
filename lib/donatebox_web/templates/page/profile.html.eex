@@ -1,0 +1,98 @@
+<%= if logged_in?(@conn) do %>
+<ul>
+
+
+
+  <li>
+    <strong>Username:</strong>
+    <%= current_user(@conn).username %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= current_user(@conn).email %>
+  </li>
+
+  <li>
+    <strong>Password:</strong>
+    <%= current_user(@conn).password %>
+  </li>
+
+  <li>
+    <strong>First Name:</strong>
+    <%= current_user(@conn).firstname %>
+  </li>
+
+  <li>
+    <strong>Last Name:</strong>
+    <%= current_user(@conn).lastname %>
+  </li>
+
+  <li>
+    <strong>Blood Group:</strong>
+    <%= current_user(@conn).bloodgroup %>
+  </li>
+
+  <li>
+    <strong>Gender:</strong>
+    <%= current_user(@conn).gender %>
+  </li>
+
+  <li>
+    <strong>Birth:</strong>
+    <%= current_user(@conn).birth %>
+  </li>
+
+  <li>
+    <strong>Mobile:</strong>
+    <%= current_user(@conn).mobile %>
+  </li>
+
+  <li>
+    <strong>Address:</strong>
+    <%= current_user(@conn).address %>
+  </li>
+
+  <li>
+    <strong>Postal:</strong>
+    <%= current_user(@conn).postal %>
+  </li>
+
+  <li>
+    <strong>Country:</strong>
+    <%= current_user(@conn).country %>
+  </li>
+
+
+  <li>
+    <strong>Profession:</strong>
+    <%= current_user(@conn).profession %>
+  </li>
+
+  <li>
+    <strong>National ID N.O.:</strong>
+    <%= current_user(@conn).nationalID %>
+  </li>
+
+</ul>
+
+<div>
+<span><a href="/editprofile">Edit Profile</a></span>
+</div>
+
+<div>
+<span><a href="/home">Back</a></span>
+</div>
+
+  <%= if current_user(@conn).username === "masum" do %>
+  <div class="jumbotron">
+    <h2>You are the Super user!</h2>
+
+  </div>
+  <% end %>
+<% else %>
+<div class="jumbotron">
+  <h2>You are not authorized to be here!</h2>
+
+</div>
+<% end %>

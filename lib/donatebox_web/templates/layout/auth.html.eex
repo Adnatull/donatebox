@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>DonateBOX</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link rel="icon" type="image/png" href="<%= static_path(@conn, "/images/icons/favicon.ico") %>">
+<!--
+  <link rel="stylesheet"  href="<%= static_path(@conn, "/vendor/bootstrap/css/bootstrap.min.css") %>">
+
+  <link rel="stylesheet"  href="<%= static_path(@conn, "/fonts/font-awesome-4.7.0/css/font-awesome.min.css") %>">
+
+  <link rel="stylesheet"  href="<%= static_path(@conn, "/fonts/Linearicons-Free-v1.0.0/icon-font.min.css") %>">
+
+  <link rel="stylesheet"  href="<%= static_path(@conn, "/vendor/animate/animate.css") %>">
+
+  <link rel="stylesheet"  href="<%= static_path(@conn, "/vendor/css-hamburgers/hamburgers.min.css") %>">
+
+  <link rel="stylesheet"  href="<%= static_path(@conn, "/vendor/animsition/css/animsition.min.css") %>">
+
+  <link rel="stylesheet"  href="<%= static_path(@conn, "/vendor/select2/select2.min.css") %>">
+
+  <link rel="stylesheet"  href="<%= static_path(@conn, "/vendor/daterangepicker/daterangepicker.css") %>">
+
+//-->
+  <link rel="stylesheet"  href="<%= static_path(@conn, "/css/util.css") %>">
+  <link rel="stylesheet"  href="<%= static_path(@conn, "/css/main.css") %>">
+<!--===============================================================================================-->
+
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-login100">
+      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+
+      <main role="main">
+        <%= render @view_module, @view_template, assigns %>
+      </main>
+		</div>
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--
+  <script src="<%= static_path(@conn, "/vendor/jquery/jquery-3.2.1.min.js") %>"></script>
+
+  <script src="<%= static_path(@conn, "/vendor/animsition/js/animsition.min.js") %>"></script>
+
+  <script src="<%= static_path(@conn, "/vendor/bootstrap/js/popper.js") %>"></script>
+  <script src="<%= static_path(@conn, "/vendor/bootstrap/js/bootstrap.min.js") %>"></script>
+
+  <script src="<%= static_path(@conn, "/vendor/select2/select2.min.js") %>"></script>
+
+  <script src="<%= static_path(@conn, "/vendor/daterangepicker/moment.min.js") %>"></script>
+  <script src="<%= static_path(@conn, "/vendor/daterangepicker/daterangepicker.js") %>"></script>
+
+  <script src="<%= static_path(@conn, "/vendor/countdowntime/countdowntime.js") %>"></script>
+-->
+  <script src="<%= static_path(@conn, "/js/main.js") %>"></script>
+
+
+</body>
+</html>
