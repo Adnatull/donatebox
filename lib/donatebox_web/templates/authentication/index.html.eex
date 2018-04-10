@@ -39,11 +39,11 @@
       </div>
 
       <div>
-        <a href="#" class="txt1  p-t-3 p-b-24">
+        <a href="#" class="txt1">
           Forgot?
         </a>
       </div>
-      <div> 
+      <div>
 
         <a href="/register" class="txt1">
           Sign-UP
