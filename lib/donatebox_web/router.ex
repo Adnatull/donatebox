@@ -27,6 +27,8 @@ defmodule DonateboxWeb.Router do
     post "/editprofile", PageController, :profileupdate
     get "/donate", PageController, :donate
     post "/donate", PageController, :givedonation
+
+    get "/admin", AdminController, :index
   end
 
   # Other scopes may use custom stacks.

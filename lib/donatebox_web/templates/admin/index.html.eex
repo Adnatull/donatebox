@@ -1,0 +1,25 @@
+<!------------ Thanks Daniel Almeida for the reference  ----------->
+<!-- https://dribbble.com/shots/4027518-Login-screen-interaction -->
+
+<div class="login-wrapper">
+  <div class="login-left">
+    <img src="http://res.cloudinary.com/dzqowkhxu/image/upload/v1513679279/bg-login_bxxfkf.png">
+    <div class="h1">Welcome leader, You are doing great by helping others!</div>
+  </div>
+  <div class="login-right">
+    <div class="h2">Login</div>
+    <div class="form-group">
+      <input type="text" id="username" placeholder="Username">
+      <label for="username">Username</label>
+    </div>
+    <div class="form-group">
+      <input type="password" id="Password" placeholder="Password">
+      <label for="Password">Password</label>
+    </div>
+
+    <div class="button-area">
+      <button class="btn btn-primary">Login</button>
+
+    </div>
+  </div>
+</div>
