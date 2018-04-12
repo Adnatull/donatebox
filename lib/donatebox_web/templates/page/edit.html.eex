@@ -6,7 +6,7 @@
     <label> Username: </labe>
       <%= current_user(@conn).username %>
     <br>
-    <%= hidden_input f, :id, autofocus: "on", placeholder: "id", value: current_user(@conn).id %>
+    
 
     <%= hidden_input f, :username, autofocus: "on", placeholder: "username", value: current_user(@conn).username %>
 

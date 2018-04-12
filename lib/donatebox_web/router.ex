@@ -25,6 +25,7 @@ defmodule DonateboxWeb.Router do
     get "/profile", PageController, :profile
     get "/editprofile", PageController, :editprofile
     post "/editprofile", PageController, :profileupdate
+    put "/editprofile", PageController, :profileupdate
     get "/donate", PageController, :donate
     post "/donate", PageController, :givedonation
 

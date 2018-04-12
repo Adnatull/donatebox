@@ -7,6 +7,9 @@ defmodule DonateboxWeb.PageController do
   alias Donatebox.Donations.Pendingdonation
   import Plug.Conn
 
+  import Ecto.Query, warn: false
+  alias Donatebox.Repo
+
   def index(conn, _params) do
     render conn, "index.html"
   end
@@ -20,12 +23,14 @@ defmodule DonateboxWeb.PageController do
     render(conn, "edit.html", changeset: changeset)
   end
 
-  def profileupdate(conn,  %{"user" => user_params}) do
-    IO.inspect(user_params)
-    id = user_params["id"]
-    IO.puts(id)
+  def profileupdate(conn, %{"user" => user_params} ) do
 
-    user = Accounts.get_user!(id)
+
+    current_user = conn.body_params["user"]
+
+
+    user = Repo.get_by(User, username: current_user["username"])
+
     case Accounts.update_user(user, user_params) do
       {:ok, _user} ->
         conn
