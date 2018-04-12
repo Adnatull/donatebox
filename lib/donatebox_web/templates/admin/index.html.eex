@@ -1,5 +1,11 @@
-<!------------ Thanks Daniel Almeida for the reference  ----------->
-<!-- https://dribbble.com/shots/4027518-Login-screen-interaction -->
+<%= form_for @changeset, admin_path(@conn, :log), fn f -> %>
+
+
+    <%= if f.errors != [] do %>
+     <div class="alert alert-danger">
+       <p>Oops, something went wrong! Please check the errors below:</p>
+     </div>
+   <% end %>
 
 <div class="login-wrapper">
   <div class="login-left">
@@ -9,17 +15,19 @@
   <div class="login-right">
     <div class="h2">Login</div>
     <div class="form-group">
-      <input type="text" id="username" placeholder="Username">
+      <%= text_input f, :username, autofocus: "on", placeholder: "Username", id: "username" %>
       <label for="username">Username</label>
     </div>
     <div class="form-group">
-      <input type="password" id="Password" placeholder="Password">
+      <%= password_input f, :password, autofocus: "on", placeholder: "Password", id: "password" %>
       <label for="Password">Password</label>
     </div>
 
     <div class="button-area">
-      <button class="btn btn-primary">Login</button>
+      <%= submit "Login", class: "btn btn-primary" %>
+
 
     </div>
   </div>
 </div>
+<% end %>

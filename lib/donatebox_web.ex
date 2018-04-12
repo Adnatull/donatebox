@@ -41,6 +41,7 @@ defmodule DonateboxWeb do
       import DonateboxWeb.ErrorHelpers
       import DonateboxWeb.Gettext
       import Donatebox.Accounts, only: [current_user: 1, logged_in?: 1]
+      import Donatebox.Management, only: [current_admin: 1, admin_logged_in?: 1]
     end
   end
 

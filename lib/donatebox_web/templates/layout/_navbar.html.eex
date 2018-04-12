@@ -9,16 +9,17 @@
     <div class="text-right" font-size=20>
 
 
-        <%= if logged_in?(@conn) do %>
-          <span class="badge badge-dark mr-2"><%= current_user(@conn).username %></span>
-
-          <%= link "Logout",  to: authentication_path(@conn, :delete), class: "btn btn-primary" %>
-        <% else %>
-          <%= link "Login", to: "/login", class: "btn btn-primary" %>
-          <%= link "Register", to: authentication_path(@conn, :register), class: "btn btn-secondary" %>
+        <%= cond do %>
+          <%=  logged_in?(@conn) -> %>
+              <span class="badge badge-dark mr-2"><%= current_user(@conn).username %></span>
+              <%= link "Logout",  to: authentication_path(@conn, :delete), class: "btn btn-primary" %>
+          <%= admin_logged_in?(@conn) -> %>
+              <span class="badge badge-dark mr-2"><%= current_admin(@conn).username %></span>
+              <%= link "Logout",  to: admin_path(@conn, :logout), class: "btn btn-primary" %>
+          <%= true -> %>
+              <%= link "Login", to: "/login", class: "btn btn-primary" %>
+              <%= link "Register", to: authentication_path(@conn, :register), class: "btn btn-secondary" %>
         <% end %>
-
-
 
     </div>
   </div>

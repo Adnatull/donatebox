@@ -30,6 +30,8 @@ defmodule DonateboxWeb.Router do
     post "/donate", PageController, :givedonation
 
     get "/admin", AdminController, :index
+    post "/admin", AdminController, :log
+    get "/logout" , AdminController, :logout
   end
 
   # Other scopes may use custom stacks.

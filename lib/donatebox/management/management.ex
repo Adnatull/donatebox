@@ -101,4 +101,36 @@ defmodule Donatebox.Management do
   def change_admin(%Admin{} = admin) do
     Admin.changeset(admin, %{})
   end
+
+  def login(params) do
+    user = Repo.get_by(Admin, username: params["username"])
+    IO.inspect(user)
+    if user === nil do
+       :error
+    else
+      case authenticate(user, params["password"]) do
+            true -> {:ok, user}
+            false    -> :error
+      end
+    end
+  end
+
+  defp authenticate(user, password) do
+    if password === user.password do
+      true
+    else
+      false
+    end
+  end
+
+
+  def current_admin(conn) do
+    id = Plug.Conn.get_session(conn, :current_admin)
+    if id, do: Repo.get(Admin, id)
+  end
+
+  def admin_logged_in?(conn), do: !!current_admin(conn)
+
+
+
 end
