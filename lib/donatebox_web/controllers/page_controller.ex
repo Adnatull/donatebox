@@ -26,10 +26,12 @@ defmodule DonateboxWeb.PageController do
   def profileupdate(conn, %{"user" => user_params} ) do
 
 
-    current_user = conn.body_params["user"]
+  #  current_user = conn.body_params["user"]
+  #  user = Repo.get_by(User, username: current_user["username"])
 
 
-    user = Repo.get_by(User, username: current_user["username"])
+  id = Plug.Conn.get_session(conn, :current_user)
+  user = Repo.get!(User, id)
 
     case Accounts.update_user(user, user_params) do
       {:ok, _user} ->

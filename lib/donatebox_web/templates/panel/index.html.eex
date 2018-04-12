@@ -1,0 +1,12 @@
+
+
+<%= cond do %>
+  <% admin_logged_in?(@conn) -> %>
+
+  <% true -> %>
+      <div class="jumbotron">
+        <h2>You are not authorized to be here!</h2>
+
+      </div>
+
+<%= end %>

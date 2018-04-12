@@ -6,7 +6,7 @@
     <label> Username: </labe>
       <%= current_user(@conn).username %>
     <br>
-    
+
 
     <%= hidden_input f, :username, autofocus: "on", placeholder: "username", value: current_user(@conn).username %>
 
@@ -93,9 +93,9 @@
 
 <% else %>
 
-  <div class="jumbotron">
-    <h2>You are not authorized to be here!</h2>
+<div class="jumbotron">
+  <h2>You are not authorized to be here!</h2>
 
-  </div>
+</div>
 
 <% end %>
