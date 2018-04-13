@@ -9,6 +9,7 @@ defmodule Donatebox.Donations.Pendingdonation do
     field :title, :string
     field :type, :string
     field :username, :string
+    field :contactno, :string
 
     timestamps()
   end
@@ -16,7 +17,7 @@ defmodule Donatebox.Donations.Pendingdonation do
   @doc false
   def changeset(pendingdonation, attrs) do
     pendingdonation
-    |> cast(attrs, [:username, :type, :quantity, :title, :location])
-    |> validate_required([:username, :type, :quantity, :title, :location])
+    |> cast(attrs, [:username, :type, :quantity, :title, :location, :contactno])
+    |> validate_required([:username, :type, :quantity, :title, :location, :contactno])
   end
 end

@@ -3,6 +3,38 @@
 <%= cond do %>
   <% admin_logged_in?(@conn) -> %>
 
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Type</th>
+        <th>Quantity</th>
+        <th>Location</th>
+        <th>Donor name</th>
+        <th>Contact No. </th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <%= for donations <- @pendingdonations do %>
+
+      <tr>
+        <td><%= donations.title %> </td>
+        <td><%= donations.type %> </td>
+        <td><%= donations.quantity %> </td>
+        <td><%= donations.location %> </td>
+        <td><%= donations.username %> </td>
+        <td> <%= donations.contactno %> </td>
+      </tr>
+
+
+      <% end %>
+    </tbody>
+  </table>
+
+
+
+
   <% true -> %>
       <div class="jumbotron">
         <h2>You are not authorized to be here!</h2>

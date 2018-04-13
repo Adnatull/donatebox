@@ -11,7 +11,12 @@ defmodule DonateboxWeb.PanelController do
   alias Donatebox.Repo
 
   def index(conn, _) do
-    render conn, "index.html"
+#    render conn, "index.html"
+
+    pendingdonations = Donations.list_pendingdonations()
+    render(conn, "index.html", pendingdonations: pendingdonations)
+
+
   end
 
 

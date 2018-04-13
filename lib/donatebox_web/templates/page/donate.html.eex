@@ -11,6 +11,7 @@
    <form method="post">
 
      <%= hidden_input f, :username, autofocus: "on", placeholder: "username", value: current_user(@conn).username %>
+     <%= hidden_input f, :contactno, autofocus: "on", placeholder: "contactno", value: current_user(@conn).mobile %>
 
      <%= text_input f, :title, autofocus: "on", placeholder: "Title" %>
      <%= error_tag f, :title %>
