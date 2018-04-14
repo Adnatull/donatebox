@@ -12,6 +12,7 @@
         <th>Location</th>
         <th>Donor name</th>
         <th>Contact No. </th>
+        <th> </th>
 
       </tr>
     </thead>
@@ -25,6 +26,13 @@
         <td><%= donations.location %> </td>
         <td><%= donations.username %> </td>
         <td> <%= donations.contactno %> </td>
+
+        <td class="text-right">
+        <span><%= link "process", to: panel_path(@conn, :show, donations), class: "btn btn-default btn-xs" %></span>
+
+      </td>
+
+
       </tr>
 
 
@@ -41,4 +49,4 @@
 
       </div>
 
-<%= end %>
+<% end %>
