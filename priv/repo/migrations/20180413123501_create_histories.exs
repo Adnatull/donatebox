@@ -13,11 +13,10 @@ defmodule Donatebox.Repo.Migrations.CreateHistories do
       add :adminname, :string
       add :admincontact, :string
       add :donationstatus, :string
-      add :event_id, references(:users, on_delete: :nothing)
 
       timestamps()
     end
 
-    create index(:histories, [:eventid])
+
   end
 end

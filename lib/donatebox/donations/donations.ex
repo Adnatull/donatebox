@@ -5,6 +5,13 @@ defmodule Donatebox.Donations do
 
   import Ecto.Query, warn: false
   alias Donatebox.Repo
+  alias Donatebox.History
+  alias Donatebox.Management
+  alias Donatebox.Management.Admin
+  import Plug.Conn
+
+
+
 
   alias Donatebox.Donations.Pendingdonation
 
@@ -49,10 +56,22 @@ defmodule Donatebox.Donations do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_pendingdonation(attrs \\ %{}) do
+  def create_pendingdonation(conn, attrs \\ %{}) do
     IO.inspect(attrs)
     %Pendingdonation{}
     |> Pendingdonation.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def create_history(admin, c) do
+    IO.inspect(c)
+    IO.puts c.username
+    donation = %{ donorname: c.username, title: c.title, type: c.type, quantity: c.quantity, req_date: c.inserted_at, accept_date: datetime = DateTime.utc_now(), meetlocation: c.location, adminname: admin.username, admincontact: "123", donationstatus: "Accepted" }
+
+    IO.inspect(donation)
+
+    %History{}
+    |> History.changeset(donation)
     |> Repo.insert()
   end
 

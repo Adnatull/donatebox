@@ -25,4 +25,7 @@ defmodule Donatebox.History do
     |> cast(attrs, [:donorname, :title, :type, :quantity, :req_date, :accept_date, :meetlocation, :adminname, :admincontact, :donationstatus])
     |> validate_required([:donorname, :title, :type, :quantity, :req_date, :accept_date, :meetlocation, :adminname, :admincontact, :donationstatus])
   end
+
+
+
 end
