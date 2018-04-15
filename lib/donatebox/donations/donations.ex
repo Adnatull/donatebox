@@ -56,7 +56,7 @@ defmodule Donatebox.Donations do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_pendingdonation(conn, attrs \\ %{}) do
+  def create_pendingdonation(attrs \\ %{}) do
     IO.inspect(attrs)
     %Pendingdonation{}
     |> Pendingdonation.changeset(attrs)

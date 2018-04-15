@@ -5,6 +5,7 @@
     <%  logged_in?(@conn) -> %>
         <a class="navbar-brand mb-0 h1" href="/profile">Profile</a>
         <a class="navbar-brand mb-0 h1" href="/donate">Donate Now!</a>
+        <a class="navbar-brand mb-0 h1" href="/mydonations">My Donations!</a>
 
     <% admin_logged_in?(@conn) -> %>
         <a class="navbar-brand mb-0 h1" href="/panel">Dashboard</a>

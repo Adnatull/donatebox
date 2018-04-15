@@ -1,0 +1,59 @@
+
+
+<%= cond do %>
+  <% logged_in?(@conn) -> %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Type</th>
+        <th>Quantity</th>
+        <th>Location</th>
+        <th>Donor name</th>
+
+        <th> Donation Request date </th>
+        <th> Donation Accepted date </th>
+        <th> Representative name of Donatebox </th>
+        <th> Contact No. of Representative </th>
+        <th> Donation Status </th>
+        <th> </th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <%= for hist <- @changeset do %>
+
+      <tr>
+        <td><%= hist.title %> </td>
+        <td><%= hist.type %> </td>
+        <td><%= hist.quantity %> </td>
+        <td><%= hist.meetlocation %> </td>
+        <td><%= hist.donorname %> </td>
+
+        <td> <%= hist.req_date %> </td>
+        <td> <%= hist.accept_date %> </td>
+        <td> <%= hist.adminname %> </td>
+        <td> <%= hist.admincontact %> </td>
+        <td> <%= hist.donationstatus %> </td>
+
+
+
+
+      </tr>
+
+
+      <% end %>
+    </tbody>
+  </table>
+
+
+
+
+  <% true -> %>
+      <div class="jumbotron">
+        <h2>You are not authorized to be here!</h2>
+
+      </div>
+
+<% end %>

@@ -29,6 +29,8 @@ defmodule DonateboxWeb.Router do
     get "/donate", PageController, :donate
     post "/donate", PageController, :givedonation
 
+    get "/mydonations", PageController, :showhistory
+
     get "/admin", AdminController, :index
     post "/admin", AdminController, :log
     get "/logout" , AdminController, :logout

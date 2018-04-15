@@ -5,6 +5,7 @@ defmodule DonateboxWeb.PageController do
   alias Donatebox.Accounts.User
   alias Donatebox.Donations
   alias Donatebox.Donations.Pendingdonation
+  alias Donatebox.History
   import Plug.Conn
 
   import Ecto.Query, warn: false
@@ -58,6 +59,20 @@ defmodule DonateboxWeb.PageController do
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "donate.html", changeset: changeset)
     end
+  end
+
+  def showhistory(conn, _) do
+    id = Plug.Conn.get_session(conn, :current_user)
+    user = Repo.get!(User, id)
+    IO.inspect(user)
+    history = Repo.all(from u in Donatebox.History, where: u.donorname == ^user.username, select: u)
+
+    changeset = history
+    render(conn, "show.html", changeset: changeset)
+    IO.puts("HHHHH")
+    IO.inspect(history)
+  #  render conn, "profile.html"
+
   end
 
 end

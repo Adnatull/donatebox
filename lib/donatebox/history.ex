@@ -14,7 +14,6 @@ defmodule Donatebox.History do
     field :req_date, :date
     field :title, :string
     field :type, :string
-    field :eventid, :id
 
     timestamps()
   end

@@ -7,6 +7,7 @@ defmodule DonateboxWeb.PanelController do
   alias Donatebox.Donations.Pendingdonation
   alias Donatebox.Management
   alias Donatebox.Management.Admin
+  alias Donatebox.History
   import Plug.Conn
 
   import Ecto.Query, warn: false
@@ -47,16 +48,10 @@ defmodule DonateboxWeb.PanelController do
         |> redirect(to: "/panel")
 
     end
-
-
-
-
-
-#    pendingdonations = Donations.list_pendingdonations()
-#    render(conn, "index.html", pendingdonations: pendingdonations)
-  #  render conn, "index.html"
-
   end
+
+
+  
 
 
 
