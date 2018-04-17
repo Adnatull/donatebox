@@ -11,6 +11,8 @@ defmodule DonateboxWeb.PageController do
   import Ecto.Query, warn: false
   alias Donatebox.Repo
 
+ # plug :put_layout, "main.html"
+
   def index(conn, _params) do
     render conn, "index.html"
   end

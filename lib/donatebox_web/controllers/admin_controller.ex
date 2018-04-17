@@ -6,7 +6,7 @@ defmodule DonateboxWeb.AdminController do
   alias Donatebox.Management.Admin
   import Plug.Conn
 
-  plug :put_layout, "admin.html"
+  plug :put_layout, "auth.html"
 
   def index(conn, _) do
 
