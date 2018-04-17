@@ -8,6 +8,11 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
+# Instructions
+  
+  * You need to manually create a user in admins table because there is no option to register as admin.
+  * To check current donation request you need to login as admin and to do that the url is [`localhost:4000/admin`](http://localhost:4000/admin)
+
 Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
 
 ## Learn more
